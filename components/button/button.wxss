@@ -1,0 +1,39 @@
+/* components/button/button.wxss */
+
+
+.button{
+  border:none;
+  --main-bg-color:#F6705A;
+  --sub-bg-color:#FE996F;
+  width: 540rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  box-shadow: 0rpx 12rpx 32rpx 0rpx rgba(0,0,0,0.1);
+  border-radius: 16rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.button-hover{
+  opacity: 0.8;
+}
+
+.button.mini{
+  width: 360rpx;
+}
+
+.button.color-default{
+  border: 1px solid var(--main-bg-color);
+  background-color: rgba(0,0,0,0);
+  color: var(--main-bg-color)
+}
+.button.color-padding{
+  background-color: var(--main-bg-color);
+  color:white;
+}
+.button.color-gradients{
+  background: linear-gradient(to right,var(--sub-bg-color),var(--main-bg-color));
+  color: white;
+}

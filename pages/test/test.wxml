@@ -1,0 +1,20 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+
+<view>
+  <text my-id="idid">当前时间:{{time}}</text>
+  <view wx:for="{{names}}">
+    第{{index+1}}个名字:{{item}}
+  </view>
+  <view wx:for="{{arr}}">
+    index:{{index}}, item:{{item}}
+  </view>
+  <button bindtap="pushArr">push arr</button>
+
+  <view>
+  <text class="{{color}}">我会改变颜色</text>
+  
+  <text class="{{active?'active':''}}">{{active}}</text>
+  <button bindtap="changeColor">改变颜色</button>
+  </view>
+</view>

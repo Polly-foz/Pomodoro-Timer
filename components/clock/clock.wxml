@@ -1,0 +1,7 @@
+<!--components/clock/clock.wxml-->
+<view class="clock">
+  <text>
+    <slot></slot>
+  </text>
+  <image src="../../images/tomato.png"></image>
+</view>

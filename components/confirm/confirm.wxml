@@ -1,0 +1,13 @@
+<!--components/confirm/confirm.wxml-->
+<view class="confirmWrapper {{visible?'':'hide'}}">
+<view class="confirm">
+  <view class="inputWrapper">
+    <input class="input" placeholder="{{placeholder}}" model:value="{{message}}">
+    </input>
+  </view>
+  <view class="action">
+    <view class="action-item action-confirm" hover-class="action-hover" bindtap="confirm">确认</view>
+    <view class="action-item action-cancel" hover-class="action-hover" bindtap="cancel">取消</view>
+  </view>
+</view>
+</view>

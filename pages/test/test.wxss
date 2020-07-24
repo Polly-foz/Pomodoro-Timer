@@ -1,0 +1,11 @@
+/* pages/test/test.wxss */
+.blue{
+  color:blue
+}
+.green{
+  color:green
+}
+.active{
+  background-color: grey;
+  color:white
+}

@@ -1,0 +1,18 @@
+/* components/clock/clock.wxss */
+.clock{
+  position: relative;
+  width: 320rpx;
+  height: 320rpx;
+}
+.clock text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-70%);
+  font-size: 26rpx;
+  color: white;
+}
+.clock image{
+  width: 320rpx;
+  height: 320rpx;
+}
