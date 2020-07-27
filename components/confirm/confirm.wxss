@@ -41,7 +41,7 @@
 .confirm .inputWrapper .input{
   /* width: 600rpx; */
   height: 80rpx;
-  border: 1px solid #979797;
+  /* border: 1px solid #979797; */
   border-radius: 8rpx;
   background-color: #F2F2F2;
   padding: 0 28rpx;

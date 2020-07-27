@@ -1,7 +1,7 @@
 <!--components/clock/clock.wxml-->
 <view class="clock">
-  <text>
-    <slot></slot>
-  </text>
+  <view class="textWrapper" style="font-size:{{fontSize}}rpx">
+    {{text}}
+  </view>
   <image src="../../images/tomato.png"></image>
 </view>

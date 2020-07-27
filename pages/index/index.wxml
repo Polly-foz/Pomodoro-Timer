@@ -1,34 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-  <view>
-    <p-confirm placeholder="this is placeholder" hasCancel="{{false}}" bindconfirm="confirm" bindcancel="cancel" visible="{{visible}}">这是confirm</p-confirm>
-  </view>
-  <view>
-    <p-clock>点击开始番茄</p-clock>
-    <p-clock>已完成</p-clock>
-    <p-clock>10:23</p-clock>
-  </view>
-  <view>
-    <p-button size="mini" color="gradients">
-      迷你 mini gradients
-    </p-button>
-    <p-button color="padding">
-      padding
-    </p-button>
-    <p-button>
-      default
-    </p-button>
-  </view>
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <scroll-view class="todoList" scroll-y="{{true}}"> 
+    <view class="line"></view>
+    <view class="todoItem" wx:for="{{list}}" bindtap="destroyTodo" data-index="{{index}}">
+      <view class="select {{item.finished && 'active'}}">
+        <view></view>
+      </view>
+      <text class="title">{{item.title}}</text>
+    </view>
+  </scroll-view>
+  <p-button class="createButton" color="gradients" bindtap="showConfirm">创建任务</p-button>
+  <navigator url="/pages/tomato/tomato" class="clock">
+    <p-clock text="点击开始闹钟"></p-clock>
+  </navigator>
+  <p-confirm placeholder="我完成了什么" visible="{{visible}}" bindconfirm="confirm" bindcancel="cancel"></p-confirm>
 </view>
-
-<!-- <navigator url="/pages/test/test?id=123">go to test</navigator> -->

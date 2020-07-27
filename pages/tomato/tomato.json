@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "p-clock":"../../components/clock/clock",
+    "p-button":"../../components/button/button",
+    "p-confirm":"../../components/confirm/confirm"
+  }
+}

@@ -11,6 +11,10 @@ Component({
     visible:{
       type:Boolean,
       value:false
+    },
+    enableCancel:{
+      type:Boolean,
+      value:true
     }
   },
 

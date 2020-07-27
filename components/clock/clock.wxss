@@ -4,13 +4,15 @@
   width: 320rpx;
   height: 320rpx;
 }
-.clock text{
+.clock .textWrapper{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-70%);
-  font-size: 26rpx;
+  transform: translate(-50%,-50%);
   color: white;
+}
+.clock .textWrapper .text{
+  border: 1px solid yellow;
 }
 .clock image{
   width: 320rpx;

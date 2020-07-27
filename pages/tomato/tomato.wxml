@@ -1,0 +1,13 @@
+<!--pages/tomato/tomato.wxml-->
+<view class="container">
+  <text class="text">距结束还有</text>
+  <p-clock class="clock" text="{{time}}" fontSize="56"></p-clock>
+  <view class="buttons">
+    <view class="button" hidden="{{state==='paused'||state==='finished'}}" ontap="pause"><p-button size="mini" color="gradients">暂停</p-button></view>
+    <view class="button" hidden="{{state==='resumed'||state==='finished'}}" ontap="resume"><p-button size="mini" color="gradients">继续</p-button></view>
+    <view class="button" hidden="{{state==='finished'}}" bindtap="showAbandonConfirm"><p-button size="mini">放弃</p-button></view>  
+    <view class="button" hidden="{{state!=='finished'}}" bindtap="newGroup"><p-button size="mini" color="gradients">再来一组</p-button></view>
+  </view>
+  <p-confirm placeholder="请填写放弃理由" visible="{{isAbandonConfirmVisible}}" bindconfirm="confirmAbandon" bindcancel="cancelAbandon"></p-confirm>
+  <p-confirm placeholder="我完成了什么" visible="{{isFinishedConfirmVisible}}" enableCancel="{{false}}" bindconfirm="confirmFinished"></p-confirm>
+</view>

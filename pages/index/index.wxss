@@ -1,21 +1,74 @@
 /**index.wxss**/
-.userinfo {
+.container{
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  height: 100vh;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.todoList{
+  height: 50vh;
+  position: relative;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+/* .line{
+  position: absolute;
+  left: 73rpx;
+  top: 0;
+  background-color: var(--main-bg-color);
+  width: 1rpx;
+  height: 100%;
+  z-index: 1;
+} */
+
+.todoItem{
+  margin: 24rpx 30rpx;
+  box-shadow: 0 0 1rpx 1rpx rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 17rpx 33rpx;
+  background-color: white;
+  position:relative;
+  z-index: 10;
 }
 
-.usermotto {
-  margin-top: 200px;
+.select{
+  border: 1px solid var(--main-bg-color);
+  width: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+  border-radius: 28rpx;
+  position: relative;
+}
+.select.active view{
+  width: 15rpx;
+  height: 15rpx;
+  background-color: var(--main-bg-color);
+  border-radius: 15rpx;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+/* .select::after{
+  content:'';
+  
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+} */
+
+.title{
+  margin-left: 28rpx;
+}
+
+.createButton{
+}
+
+.clock{
+  /* border: 1px solid black; */
 }
