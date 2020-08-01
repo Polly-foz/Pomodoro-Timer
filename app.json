@@ -1,9 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/tomato/tomato",
+    "pages/me/me",
+    "pages/binding/binding",
+    
+    "pages/login/login",
     "pages/logs/logs",
-    "pages/test/test",
-    "pages/tomato/tomato"
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,8 +32,8 @@
       "selectedIconPath":"images/home-active.png"
       }, 
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志",
+        "pagePath": "pages/me/me",
+        "text": "我的",
         "iconPath": "images/me.png",
         "selectedIconPath":"images/me-active.png"
       }

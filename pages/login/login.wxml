@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+<view class="contentWrapper">
+  <view class="avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="nickNameWrapper">
+    <view class="textUnderline"></view>
+    <open-data type="userNickName" class="nickName"></open-data>
+  </view>
+  <button class="button">登录</button>
+  <navigator url="/pages/binding/binding">
+    <view class="binding">还没有与pc端绑定？去绑定 ></view>
+  </navigator>
+</view>
+  
+</view>
+

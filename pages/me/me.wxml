@@ -1,0 +1,45 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+<view class="header">
+  <view class="avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="detail">
+    <view class="nickNameWrapper">
+      <view class="textUnderline"></view>
+     <open-data type="userNickName" class="nickName"></open-data>
+    </view>
+    <view class="bindPC">绑定PC账号</view>
+  </view>
+  <button class="feedback" open-type="feedback" size="mini">
+   问题反馈
+  </button>
+</view>
+<view class="tabs">
+  <view class="tab {{tab==='history'?'active':''}}" bindtap="changeTab" data-tab="history">
+    番茄历史
+    <view class="underline"></view>
+  </view>
+  <view class="tab {{tab==='tasks'?'active':''}}" bindtap="changeTab" data-tab="tasks">
+    我完成的任务
+    <view class="underline"></view>
+  </view>
+</view>
+<scroll-view class="scrollView" scroll-y="true">
+  <view class="lists" wx:for="{{lists}}">
+    <view class="period">
+      <view class="textUnderline"></view>
+      <view class="text">{{index}}</view>
+    </view>
+    <view class="items">
+      <view class="item" wx:for="{{lists[index]}}">
+        <view class="time">{{item.time}}</view>
+        <view class="title">{{item.title}}</view>
+      </view>
+    </view>
+    
+  </view>
+</scroll-view>
+
+
+</view>
