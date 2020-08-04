@@ -17,7 +17,12 @@ Page({
   confirmFinished: function(event){
     console.log('confirm finish',event)
     Tomato.add(event.detail.message,false)
+    wx.showLoading({
+      title: '正在记录番茄',
+      mask: true
+    })
     .then(tomato=>{
+      wx.hideLoading()
       wx.showToast({
         title: '恭喜，成功完成一个番茄！',
         icon: 'success',
@@ -25,6 +30,7 @@ Page({
       })
     })
     .catch(error=>{
+      wx.hideLoading()
       wx.showToast({
         title: '出错了，添加番茄失败TAT...',
         icon:'none',
@@ -42,13 +48,19 @@ Page({
     // console.log('abandon',event)
     console.log("description",event.detail)
     Tomato.add(event.detail.message,true)
+    wx.showLoading({
+      title: '正在记录番茄...',
+      mask: true
+    })
     .then(tomato=>{
+      wx.hideLoading()
       wx.showToast({
         title: '你放弃了这个番茄...',
         icon: "none",
         duration: 2000
       })
     }).catch(error=>{
+      wx.hideLoading()
       wx.showToast({
         title: '出错了，放弃番茄失败TAT...',
         icon: "none",

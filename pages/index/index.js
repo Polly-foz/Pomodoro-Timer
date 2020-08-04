@@ -9,7 +9,8 @@ Page({
     visible:false,
     list:[],
     finishedVisible: true,
-    updateConfirmVisible: false
+    updateConfirmVisible: false,
+
   },
   updateTodo: function(event){
     console.log('update todo',event)
@@ -19,8 +20,10 @@ Page({
   },
   confirmUpdate: function(event){
     console.log('confirm update',event)
+
     wx.showLoading({
-      title: '正在创建任务',
+      title: '正在修改任务',
+      mask: true
     })
     Todo.update({
       id:targetTodo.id,
@@ -76,6 +79,10 @@ Page({
   },
   confirm: function(event){
     const description = event.detail.message
+    wx.showLoading({
+      title: '正在创建...',
+      mask: true
+    })
     Todo.add(description).then(todo=>{
       const _todo = {
         attributes:{
@@ -91,6 +98,8 @@ Page({
     .catch(error=>{
       console.error
       this.setData({visible:false})
+    }).finally(()=>{
+      wx.hideLoading()
     })
   },
   cancel: function(event){
