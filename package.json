@@ -1,0 +1,25 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polly-foz/Pomodoro-Timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polly-foz/Pomodoro-Timer/issues"
+  },
+  "homepage": "https://github.com/Polly-foz/Pomodoro-Timer#readme",
+  "dependencies": {
+    "dayjs": "^1.8.31"
+  }
+}

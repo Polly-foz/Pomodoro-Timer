@@ -114,7 +114,7 @@
   /* padding: 0 20rpx; */
   width:710rpx;
 }
-.lists{
+.periodWrapper{
   margin-bottom: 32rpx;
   background-color: white;
   /* border: 1px solid red; */
@@ -135,16 +135,21 @@
   margin-top: 29rpx;
   margin-bottom: 35rpx;
 }
-.lists .item{
+.periodWrapper .item{
   display: flex;
   margin-top: 16rpx;
 }
 .time{
 
 }
-.title{
+.description{
   margin-left: 25rpx;
   flex: 1;
   overflow: auto;
   flex-wrap: wrap; 
+}
+
+.tomato .item.aborted{
+  text-decoration: line-through;
+  opacity: 0.7;
 }

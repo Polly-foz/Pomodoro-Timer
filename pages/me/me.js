@@ -1,32 +1,14 @@
 // pages/me/me.js
-Page({
+import {Todo,Tomato} from '../../models/index'
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    tab:"history",
-    lists:{
-      '本周四':[
-        {id:1,time:'14:00',title:'书法练习完成一页fahfjdfshfkadshfkjldashfjkdshjfsdhajkfhadsklhfadkshf搞快点'},
-        {id:2,time:'15:00',title:'书法练习完成二页书法练习完成二页书法练习完成二页书法练习完成二页书法练习完成二页书法练习完成二页书法练习完成二页'}
-      ],
-      '本周五':[
-        {id:3,time:'14:00',title:'书法练习完成一页'},
-        {id:4,time:'15:00',title:'书法练习完成二页'},
-        {id:5,time:'14:00',title:'书地方撒的范德萨'},
-        {id:6,time:'15:00',title:'书法练阿凡达二页'},
-        {id:7,time:'14:00',title:'书法练习完成一页'},
-        {id:8 ,time:'15:00',title:'书法练习完成二页'}
-      ],
-      '本周六':[
-        {id:9,time:'14:00',title:'书法练习完成一页'},
-        {id:10,time:'15:00',title:'书法练习完成二页'},
-        {id:11,time:'15:00',title:'书法练阿凡达二页'},
-        {id:12,time:'14:00',title:'书法练习完成一页'},
-        {id:13,time:'15:00',title:'书法练习完成二页'}
-      ]
-    }
+    tab:"tomatoes",
+    todos:[],
+    tomatoes:[]
   },
 
   // tabs
@@ -34,14 +16,49 @@ Page({
     // console.log(event.currentTarget.dataset.tab)
     this.setData({tab:event.currentTarget.dataset.tab})
   },
+  test: function(event){
+    console.log('tap',event)
+    const tomato = event.currentTarget.dataset.tomato
+    // const time = this.format(tomato.createAt)
+    // console.log('time',time)
+  },
 
-
+  fetchTomatoes: function (){
+    wx.showLoading({
+      title: '正在加载番茄历史',
+    })
+    console.log('onLoad')
+    Tomato.findAll()
+    .then(res=>{
+      this.setData({tomatoes:res})
+    })
+    .catch(error=>{
+      console.error
+    }).finally(()=>{
+      wx.hideLoading()
+    })
+  },
+  fetchTodos: function(){
+    wx.showLoading({
+      title: '正在加载完成的任务',
+    })
+    console.log('onLoad')
+    Todo.findAllFinished()
+    .then(res=>{
+      this.setData({todos:res})
+    })
+    .catch(error=>{
+      console.error
+    }).finally(()=>{
+      wx.hideLoading()
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -55,7 +72,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.fetchTomatoes()
+    this.fetchTodos()
   },
 
   /**

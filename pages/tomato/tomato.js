@@ -1,6 +1,6 @@
 // pages/tomato/tomato.js
-
-const initialSeconds = 3
+import {Tomato} from '../../models/index'
+const initialSeconds = 5
 Page({
 
   /**
@@ -15,25 +15,55 @@ Page({
     isFinishedConfirmVisible: false
   },
   confirmFinished: function(event){
-    console.log('confirm finished',event)
-    this.setData({isFinishedConfirmVisible:false})
-    // wx.navigateBack({
-    //   delta: 1,
-    // })
+    console.log('confirm finish',event)
+    Tomato.add(event.detail.message,false)
+    .then(tomato=>{
+      wx.showToast({
+        title: '恭喜，成功完成一个番茄！',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+    .catch(error=>{
+      wx.showToast({
+        title: '出错了，添加番茄失败TAT...',
+        icon:'none',
+        duration: 2000
+      })
+    })
+    .finally(()=>{
+      this.setData({isFinishedConfirmVisible:false})
+    })
   },
   newGroup: function(){
     this.reset('resumed')
   },
   confirmAbandon:function(event){
     // console.log('abandon',event)
-    this.reset()
-    this.setData({
-      isAbandonConfirmVisible:false
+    console.log("description",event.detail)
+    Tomato.add(event.detail.message,true)
+    .then(tomato=>{
+      wx.showToast({
+        title: '你放弃了这个番茄...',
+        icon: "none",
+        duration: 2000
+      })
+    }).catch(error=>{
+      wx.showToast({
+        title: '出错了，放弃番茄失败TAT...',
+        icon: "none",
+        duration: 2000
+      })
+    }).finally(()=>{
+      this.setData({
+        isAbandonConfirmVisible:false
+      })
+      this.reset('finished')
+      // wx.navigateBack({
+      //   delta: 1,
+      // })
     })
-    console.log(this.data)
-    wx.navigateBack({
-      delta: 1,
-    })
+    // console.log(this.data)
   },
   cancelAbandon: function(event){
     this.setData({isAbandonConfirmVisible:false})
@@ -77,9 +107,9 @@ Page({
         clearInterval(this.data.timer)
         this.setData({
           seconds:this.data.seconds,
-          state:'finished'
+          state:'finished',
+          isFinishedConfirmVisible:true
         })
-        this.setData({isFinishedConfirmVisible:true})
       }
       console.log(this.data.timer,this.data.time)
     },1000)
@@ -97,15 +127,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('on load',this.data)
+    this.resume()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('on ready',this.data)
-    this.resume()
+
   },
 
   /**

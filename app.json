@@ -26,12 +26,6 @@
         "text": "专注"
       },
       {
-      "pagePath": "pages/test/test",
-      "text": "数据统计",
-      "iconPath": "images/home.png",
-      "selectedIconPath":"images/home-active.png"
-      }, 
-      {
         "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "images/me.png",

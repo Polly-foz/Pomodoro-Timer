@@ -16,30 +16,47 @@
   </button>
 </view>
 <view class="tabs">
-  <view class="tab {{tab==='history'?'active':''}}" bindtap="changeTab" data-tab="history">
+  <view class="tab {{tab==='tomatoes'?'active':''}}" bindtap="changeTab" data-tab="tomatoes">
     番茄历史
     <view class="underline"></view>
   </view>
-  <view class="tab {{tab==='tasks'?'active':''}}" bindtap="changeTab" data-tab="tasks">
+  <view class="tab {{tab==='todos'?'active':''}}" bindtap="changeTab" data-tab="todos">
     我完成的任务
     <view class="underline"></view>
   </view>
 </view>
-<scroll-view class="scrollView" scroll-y="true">
-  <view class="lists" wx:for="{{lists}}">
+<scroll-view class="scrollView" scroll-y="true" wx:if="{{tab==='todos'}}">
+  <view class="todos periodWrapper" wx:for="{{todos}}">
     <view class="period">
       <view class="textUnderline"></view>
-      <view class="text">{{index}}</view>
+      <view class="text">{{item.formattedTime}}</view>
     </view>
     <view class="items">
-      <view class="item" wx:for="{{lists[index]}}">
-        <view class="time">{{item.time}}</view>
-        <view class="title">{{item.title}}</view>
+      <view class="item" wx:for="{{item.subList}}" wx:for-index="idx" wx:for-item="todo">
+        <view class="time">{{todo.time}}</view>
+        <view class="description">{{todo.attributes.description}}</view>
       </view>
-    </view>
-    
+    </view> 
   </view>
 </scroll-view>
-
+<scroll-view class="scrollView" scroll-y="true" wx:elif="{{tab==='tomatoes'}}">
+  <view class="tomato periodWrapper" wx:for="{{tomatoes}}" bindtap="test" data-tomato="{{item}}">
+    <view class="period">
+      <view class="textUnderline"></view>
+      <view class="text">{{item.formattedTime}}</view>
+    </view>
+    <view class="items" wx:for="{{item.subList}}" wx:for-index="idx" wx:for-item="tomato">
+      <view class="item {{tomato.attributes.aborted?'aborted':''}}">
+        <view class="time">{{tomato.time}}</view>
+        <view class="description aborted" wx:if="{{tomato.attributes.aborted}}">
+          <text>放弃了一个番茄（{{tomato.attributes.description}}）</text>
+        </view>
+        <view class="description" wx:else>
+          <text>{{tomato.attributes.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
 
 </view>

@@ -11,9 +11,9 @@ Page({
   login: function(event){
     User.login().then(user=>{
       console.log('user',user)
-      User.getUserInfo().then(res=>{
-        console.log('res',res)
-      })
+      // User.getUserInfo().then(res=>{
+      //   console.log('res',res)
+      // })
     }).catch(error=>console.log('error',error))
     wx.reLaunch({
       url:"/pages/index/index"
@@ -28,17 +28,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('data1',this.data)
-    User.isLoggedIn().then(res=>{
-      this.setData({
-        isLoggedIn: true
-      })
-    }).catch(res=>{
-      this.setData({
-        isLoggedIn: false
-      })
-    })
-    console.log('data2',this.data)
+    // console.log('data1',this.data)
+    // User.isLoggedIn().then(res=>{
+    //   this.setData({
+    //     isLoggedIn: true
+    //   })
+    // }).catch(res=>{
+    //   this.setData({
+    //     isLoggedIn: false
+    //   })
+    // })
+    // console.log('data2',this.data)
     // console.log("ogged in?",User.isLoggedIn())
   },
 

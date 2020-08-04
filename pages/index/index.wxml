@@ -1,17 +1,29 @@
 <!--index.wxml-->
 <view class="container">
+  
   <scroll-view class="todoList" scroll-y="{{true}}"> 
     <view class="line"></view>
-    <view class="todoItem" wx:for="{{list}}" bindtap="destroyTodo" data-index="{{index}}">
-      <view class="select {{item.finished && 'active'}}">
-        <view></view>
+    <block wx:for="{{list}}">
+      <view class="todoItem {{item.attributes.finished && 'active'}}"   
+      hidden="{{item.attributes.finished && !finishedVisible}}">
+        <view class="select {{item.attributes.finished && 'active'}}" bindtap="destroyTodo" data-index="{{index}}">
+          <view></view>
+        </view>
+        <view class="title" data-index="{{index}}" data-id="{{item.id}}" bindtap="updateTodo" data-xxx="yyy" data-todo="{{item}}">{{item.attributes.description||' '}}</view>
       </view>
-      <text class="title">{{item.title}}</text>
-    </view>
+    </block>
+    
   </scroll-view>
+
+  <view class="switchWrapper">
+    <switch class="switch" type="checkbox" bindchange="changeFinishedVisible"></switch>
+    <view class="switchText">隐藏已完成的任务</view>
+  </view>
+
   <p-button class="createButton" color="gradients" bindtap="showConfirm">创建任务</p-button>
   <navigator url="/pages/tomato/tomato" class="clock">
     <p-clock text="点击开始闹钟"></p-clock>
   </navigator>
-  <p-confirm placeholder="我完成了什么" visible="{{visible}}" bindconfirm="confirm" bindcancel="cancel"></p-confirm>
+  <p-confirm placeholder="我要创建的任务是..." visible="{{visible}}" bindconfirm="confirm" bindcancel="cancel"></p-confirm>
+  <p-confirm placeholder="我要将任务名改为..." visible="{{updateConfirmVisible}}" bindconfirm="confirmUpdate" bindcancel="cancelUpdate"></p-confirm>
 </view>

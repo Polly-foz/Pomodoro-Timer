@@ -2,11 +2,13 @@
 .container {
   --main-bg-color:#F6705A;
   --sub-bg-color:#FE996F;
+  --green-bg-color:#EEF7F6;
+  --grey-bg-color:rgb(244,244,244);
   box-sizing: border-box;
   /* border: 10rpx solid green; */
   font-size: 28rpx;
   color: #333333;
-  background: rgb(244,244,244);
+  background: var(--green-bg-color);
   box-sizing: border-box;
 } 
 

@@ -6,11 +6,13 @@
   justify-content: space-between;
   align-items: center;
   height: 100vh;
+  background-color: var(--green-bg-color);
 }
 
 .todoList{
   height: 50vh;
   position: relative;
+  background-color: var(--grey-bg-color);
 }
 
 /* .line{
@@ -34,6 +36,11 @@
   z-index: 10;
 }
 
+.todoItem.active{
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 .select{
   border: 1px solid var(--main-bg-color);
   width: 20rpx;
@@ -52,18 +59,26 @@
   left:50%;
   transform: translate(-50%,-50%);
 }
-/* .select::after{
-  content:'';
-  
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-} */
 
 .title{
   margin-left: 28rpx;
+  /* border: 1px solid green; */
+  min-height: 28rpx;
+  flex:1;
+}
+
+/* switch */
+.switchWrapper{
+  width: 100%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  margin-right: 63rpx;
+}
+.switchWrapper .switchText{
+
 }
 
 .createButton{

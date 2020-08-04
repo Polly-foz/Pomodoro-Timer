@@ -87,3 +87,7 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+.confirm .action.cancelInvisible{
+  content: none;
+}

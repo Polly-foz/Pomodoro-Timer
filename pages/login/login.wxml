@@ -10,9 +10,9 @@
   </view>
   <button class="button" bindtap="login" wx:if="{{!isLoggedIn}}">登录</button>
   <button class="button" bindtap="navToHome" wx:else>跳转到主页</button>
-  <navigator url="/pages/binding/binding">
+  <!-- <navigator url="/pages/binding/binding">
     <view class="binding">还没有与pc端绑定？去绑定 ></view>
-  </navigator>
+  </navigator> -->
 </view>
   
 </view>

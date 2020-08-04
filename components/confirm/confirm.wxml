@@ -5,7 +5,7 @@
     <input class="input" placeholder="{{placeholder}}" model:value="{{message}}">
     </input>
   </view>
-  <view class="action">
+  <view class="action {{enableCancel || 'cancelInvisible'}}">
     <view class="action-item action-confirm" hover-class="action-hover" bindtap="confirm">确认</view>
     <view wx:if="{{enableCancel}}" class="action-item action-cancel" hover-class="action-hover" bindtap="cancel">取消</view>
   </view>
