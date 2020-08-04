@@ -1,3 +1,5 @@
 .DS_Store
 models/index.js
 app.js
+miniprogram_npm
+node_modules
