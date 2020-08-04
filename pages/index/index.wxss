@@ -30,7 +30,7 @@
   box-shadow: 0 0 1rpx 1rpx rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  padding: 17rpx 33rpx;
+  /* padding: 17rpx 0; */
   background-color: white;
   position:relative;
   z-index: 10;
@@ -40,7 +40,9 @@
   opacity: 0.5;
   text-decoration: line-through;
 }
-
+.selectWrapper{
+  /* border: 1px solid blue; */
+}
 .select{
   border: 1px solid var(--main-bg-color);
   width: 20rpx;
@@ -48,6 +50,10 @@
   display: inline-block;
   border-radius: 28rpx;
   position: relative;
+  margin-top: 17rpx;
+  margin-bottom: 17rpx;
+  margin-left: 33rpx;
+  margin-right: 28rpx;
 }
 .select.active view{
   width: 15rpx;
@@ -61,10 +67,15 @@
 }
 
 .title{
-  margin-left: 28rpx;
   /* border: 1px solid green; */
   min-height: 28rpx;
   flex:1;
+  /* margin-right: 33rpx; */
+  /* margin-top: 17rpx;
+  margin-bottom: 17rpx; */
+  padding: 17rpx 0;
+  padding-right: 33rpx;
+  /* border: 1px solid green; */
 }
 
 /* switch */

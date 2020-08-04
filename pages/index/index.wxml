@@ -6,8 +6,10 @@
     <block wx:for="{{list}}">
       <view class="todoItem {{item.attributes.finished && 'active'}}"   
       hidden="{{item.attributes.finished && !finishedVisible}}">
-        <view class="select {{item.attributes.finished && 'active'}}" bindtap="destroyTodo" data-index="{{index}}">
-          <view></view>
+        <view class="selectWrapper" bindtap="destroyTodo" data-index="{{index}}">
+          <view class="select {{item.attributes.finished && 'active'}}">
+            <view></view>
+          </view>
         </view>
         <view class="title" data-index="{{index}}" data-id="{{item.id}}" bindtap="updateTodo" data-xxx="yyy" data-todo="{{item}}">{{item.attributes.description||' '}}</view>
       </view>
